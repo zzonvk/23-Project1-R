@@ -443,7 +443,7 @@ boxplot(Petal.Length~Species, #데이터와 그룹 정보 <br>
         col=c('gray23','gray','gray11')) #상자들의 색<br>
 
 
-<h3>#344 section3. 산점도란 무엇인가 <br> </h3>
+<h3># 산점도란 무엇인가 <br> </h3>
 산점도 (scatter plot) 는 다중변수 데이터에서 두 변쉥 포함된 값들을 2차원 그래프상에 점으로 표현하여 분포를 관찰 할 수 있도록 하는 도구이다. <br><br>
 
 #두 변수 사이의 산점도 <br>
