@@ -251,7 +251,7 @@ sink('result.txt',append=T) <br> #메모장 안지워짐 <br>
 sink()  #이거 없이도 들어간다
 </p>
 <p>
-- 탭이나 고백으로 분리된 파일 221p <br>
+- 탭이나 고백으로 분리된 파일 <br>
 R 에서 분석할 데이터는 대부분 .csv 나 엑셀 파일이지만 열이 공백이나 탭으로 분리된 파일도 종종 접하게 된다. 이러한 경우 read.table() 함수를 통해 데이터를 읽을 수 있다. <br>
 setwd('c:/Rwork') <br> # 작업 폴더 지정 <br>
 air <- read.table('airquality.txt',header = T,sep='') <br># 파일 읽기 <br>
@@ -262,7 +262,7 @@ tail(air)<br>
 </h4>
 
 <p>
-<h3>Chap7. 제어문과 사용자 정의 함수 사용하기 234p </h3>
+<h3>제어문과 사용자 정의 함수 사용하기  </h3>
 <h4> 
 if-else문 <br>
 조건문을 조건에 따라 실행할 명령문을 다르게 할 경우에 사용된다. <br>
@@ -274,7 +274,7 @@ if(job.type =='b'){ <br>
 }<br>
 print(bonus)<br>
 직군이 B이면 보너스를 200으로 하고, 나머지의 경우엔 100 지급. <br>
-<br>239p ifelse 문 <br>
+<br> ifelse 문 <br>
 <br>ifelse (비교조건, 조건이 참일 떄 선택할 값, 조건이 거짓일 때 선택할 값) <br>
 a <-10<br>
 b<-20 <br>
@@ -285,7 +285,7 @@ print(c)<br>
 
 </h4>
 <p>
-<br> #243 반복문 <br>
+<br> # 반복문 <br>
 
 <br> for (반복 변수 in 반복 범위){<br> 
   반복할 명령문들 <br> 
@@ -304,7 +304,7 @@ for(i in 1:9){  #2단<br>
   cat('2*', i,'=',2*i,'\n')<br>  
 }<br> 
 <br> 
-#짝수인지 확인 246p<br> 
+#짝수인지 확인 <br> 
 for(i in 1:20){<br> 
   if(i %%2==0){<br> # i를 2로 나눴을 때 나머지가 0인지 확인 <br> 
     cat(i,' ')<br> 
@@ -314,7 +314,7 @@ for(i in 1:20){<br>
 </h4>
 <h4>
 <p>
-#248p while <br>
+# while <br>
 <br> while (비교 조건){ <br>
   반복할 명령문 <br>
 }<br>
@@ -331,7 +331,7 @@ print(sum)<br> # 5050 출력
 </p>
 
 <p>
-#250p apply <br>
+# apply <br>
 반복작업의 대상이 매트릭스나 데이터프레임의 행이나 열인 경우 for ,while대신 apply 함수를 이용할 수 있다. 속도를 향상시킬 수 있다. <br>
 apply() 함수는 매트릭스나 데이터프레임에 있는 행들이나 열을 하나하나 차례로 꺼내어 평균이나 합계를 구하는 작업을 수행할 때 유용하다 <br>
 apply( 데이터셋, 행 /열 방향 지정, 적용 함수)<br>
@@ -341,7 +341,7 @@ apply(iris[,1:4],2,mean)<br> 열 방향으로 함수 적용, 실행 결과는 4�
 apply(USJudgeRatings, 1,mean) <br> # 행별 평균 <br>
 apply(USJudgeRatings, 2,mean)<br> # 열 별 평균 <br>
 <p>
-#사용자 정의 함수 255p<br>
+#사용자 정의 함수 <br>
 사용자 스스로 함수를 만드는 것이다. <br>
 함수명 <- function (매개변수목록)<br>{
   실행할 명령문 <br>
@@ -375,7 +375,7 @@ mydiv(10,3)<br><br> #매개변수 값만 저장 <br>
 mydiv(10)<br><br> # x에 대한 값만 저장 <br>
 </p>
 <p>
-#사용자 정의 함수의 저장과 재실행 260p <br>
+#사용자 정의 함수의 저장과 재실행 <br>
 setwd('c:/Rwork') <br> # 저장된 폴더 <br>
 source('mydiv.R')<br># 저장된 폴더 안에 있는 함수 실행 <br>
 a <- mydiv(20,4)<br> 함수사용, 함수 호출,<br>
@@ -385,7 +385,7 @@ mydiv(mydiv(20,2),5)<br>2 출력 <br>
 </p>
 
 <p>
-#조건에 맞는 데이터의 위치를 찾아보자 264p <br>
+#조건에 맞는 데이터의 위치를 찾아보자 <br>
 
 score <-c(65,47,86,35,75,85,78,45) <br>
 which(score==85)<br> #성적이 85인 학생은 몇 번째에 있나 <br>
@@ -405,3 +405,114 @@ score.high<br> # 확인 <br>
 #사용자지정함수 funciton 매개변수.
 #source (mydiv.R)
 </h4>
+<h3>#복수의 선그래프 작성하기 </h3>
+month =1:12 <br>
+late1 =c(3,4,5,1,5,3,7,2,89,2,32,12) <br>
+late2 =c(3,4,3,1,5,3,7,2,8,2,12,12) <br>
+plot (month, # x데이터<br>
+      late1, #y데이터 <br>
+      main = 'late student', <br>
+      type='b', #그래프 종류 선택<br>
+      lty=1, #선의 종류 선택 <br>
+      col='red', # 선의 색상 선택 <br>
+      xlab='MOnth',#x축 레이블 <br>
+      ylab='late cnt') #y축 레이블 <br>
+<br>
+lines (month, #x 데이터, line()함수는 그래프 위에 선을 겹쳐 그리는 역할을 한다<br>
+       late2, #y데이터 <br>
+       type='b', #선의 종류 선택 <br>
+       col='blue') #선의 색상 선택 <br><br>
+lines() 함수는 plot() 함수로 작성됨 스래프 위에 선을 겹쳐 그리는 역할을 한다. 함수를 추가할 때 마다 선이 하나씩 추가된다. <br>
+<br>
+<h2>상자 그림에 대해 알아보자 </h2>
+<h3>사분위수를 시각화하여 그래프 형태로 나타낸 것, 하나의 그래프로 데이터의 분포
+형태를 포함한 타양한 정보를 전달하기 때문에 단일변수 수치형 자료를 파악하는 데 자주 사용 된다
+</h3>
+<h4>
+dist <-cars[,2] #자동차 제동거리 단위 (단위 :피트) <br>
+boxplot(dist, main='자동차의 제동 거리') #상자그림은 데이터의 전반적인 분포를 이해하는 데엔 도움이 되지만 구체적인 값을 정확히 알긴 어렵다 <br>
+#이를 알기 위해서는 boxplot.stats()함수를 사용하면 된다. 실행 결과는 list형태로 출력 된다 <br>
+#<br>
+boxplot.stats(dist) #$stats: 정상 범위의 데이터 내에서 사분위수에 해당하는 값들이 표시된다. <br>
+boxplot.stats(dist)$out #특이값만 출력, $out: 특이값들의 목록을 저장한다. <br>
+<br>
+#그룹이 있는 테이터의 상자그림 <br>
+boxplot(Petal.Length~Species, #데이터와 그룹 정보 <br>
+        data=iris, #데이터가 저장된 자료 구조<br>
+        main='품종별 꽃잎의 길이', #그래프의 제목<br>
+        col=c('gray23','gray','gray11')) #상자들의 색<br>
+
+
+<h3>#344 section3. 산점도란 무엇인가 <br> </h3>
+산점도 (scatter plot) 는 다중변수 데이터에서 두 변쉥 포함된 값들을 2차원 그래프상에 점으로 표현하여 분포를 관찰 할 수 있도록 하는 도구이다. <br><br>
+
+#두 변수 사이의 산점도 <br>
+#산점도를 그려보면 두 변수의 데이터 분포와 변수 사이의 관계 파악 가능<br>
+#산점도는 두 변수의 데이터 분포를 보는 것이므로 두 변수의 데이터 필요<br>
+wt <-mtcars$wt # 중량 데이터, x축에 해당하는 데이터 (벡터)를 뜻 한다.<br>
+mpg <-mtcars$mpg #연비 데이터 ,y축에 해당하는 데이터(벡터) 를 뜻한다.<br>
+plot(wt,mpg, #2개의 변수 <br>
+     main='중량 연비 그래프', #제목<br>
+     xlab='중량', #x축 레이블<br>
+     ylab='연비 (MPG)', #y축 레이블<br>
+     col='gray65', #point 의 color<br>
+     pch=19) #point의 종류(모양)<br>
+
+산점도는 두 변수의 데이터 분포를 살펴보는 것이기 때문에 두 개의 변수에 대한 데이터가 필요하다. wt,mpg에 각각 중량과 연비 데이터를 저장한 후 plot() 함수를 이용하여 산점도를 작성한다. <br>
+
+#347p 여러 변수들 간의 산점도 <br>
+vars<-c('mpg','disp','drat','wt') # 대상 변수 <br>
+target <- mtcars[ ,vars] # 대상 데이터 생성 <br>
+head(target) <br>
+plot(target,  # 대상 데이터 <br>
+     min='Multi plots')<br>
+ #mtcars 데이터셋에는 11개의 변수가 저장되어 있는데 이 중 4 개의 변수 데이터만 선택하여 target에 저장했습니다. <br>
+<br>
+#349p 그룹 정보가 있는 2개 변수의 산점도 349p<br>
+iris.2 <-iris[,3:4] #데이터의 준비<br>
+levels(iris$Species) #그룹 확인<br>
+group <-as.numeric(iris$Species) #점의 모양과 색<br>
+group<br>
+color <-c('gray','gray7','red') #점의 색<br>
+plot (iris.2, #plot() 함수를 이용해 산점도를 작성 <br>
+      main='Iris plot',<br>
+      pch=c(group), #품종별로 점의 모양을 다르게 지정하려면 pch를 숫자로 지정해야함<br>
+      col=color[group])<br>
+    
+<br>
+#기본그래프 1에 있는거 정확한 학습 필요<br>
+<br>
+<h2>#10장 데이터 탐색하기 </h2>
+#단일 변수 데이터를 분석해보자 <br>
+#데이터 준비<br>
+installed.packages('carData')<br>
+library(carData) <br>
+room.class <-TitanicSurvival  #선실 정보<br>
+room.class <br>
+<br>#도수 분포 계산
+tbl <-table (room.class)<br>
+tbl<br>
+sum(tbl) #전체  탑승객수<br>
+<br>#막대 그래프 생성 <br>
+barplot(tbl, main='선실병 탑승객', <br>
+xlab='선실등급',<br>
+ylab='탑승객수',<br>
+col=c ('blue','green','yellow.))<br>
+<br>#원그래프 작성 <br>
+tbl/sum(tbl) <br>
+par (mar=c(1,1,4,1)) <br>
+pie(tbl,main ='선신별 탑승객',<br>
+col=c('blue','green','yellow'))<br>
+par(mar=c(5.1,4.1,4.1,2.1)) <br>
+<br>
+<br> #단일변수 수치형 데이터 분석<br>
+#데이터 준비 <br>
+grad <-state.x77[,'HS Grad'] #주별 고등학교 졸업률<br>
+grad<br>
+<br>#사분위수 <br>
+summary(grad) <br>
+var(grad) #분산<br>
+sd(grad) #표준편차<br>
+<br>#히스토그램 <br>
+<br>
+#타이타닉 중요
